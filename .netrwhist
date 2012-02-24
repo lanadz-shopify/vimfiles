@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/mykola/projects/232/app/models'
 let g:netrw_dirhist_2='/home/mykola/projects/232/app/views/cdn_resources'
-let g:netrw_dirhist_3='/home/mykola/projects/232'
-let g:netrw_dirhist_4='/home/mykola/projects/232/lib'
-let g:netrw_dirhist_5='/home/mykola/projects/232/lib/tasks'
-let g:netrw_dirhist_6='/home/mykola/projects/232'
-let g:netrw_dirhist_7='/home/mykola/projects/development'
-let g:netrw_dirhist_8='/home/mykola/projects/development/app'
-let g:netrw_dirhist_9='/home/mykola/projects/development/app/controllers'
+let g:netrw_dirhist_3='/home/mykola'
