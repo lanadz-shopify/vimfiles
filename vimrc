@@ -1,12 +1,42 @@
-call pathogen#infect()
-syntax on
-filetype plugin indent on
+set nocompatible               " be iMproved
+filetype off                   " required!
 
-"colorscheme railscasts"
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles:
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'tpope/vim-rails.git'
+" Git integration
+Bundle 'tpope/vim-fugitive'     	
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jpo/vim-railscasts-theme'
+" Check syntax
+Bundle 'scrooloose/syntastic'   	
+" Switch between buffers
+Bundle 'thisivan/vim-bufexplorer'
+" Comment/uncomment code
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-haml'
+" Vim sugar for the UNIX shell commands (Remove, Move, Find, Chmod)
+Bundle 'tpope/vim-eunuch'
+" Change text surronding chars (cs"', cs'<q>, cst")
+Bundle 'tpope/vim-surround'
+Bundle 'pangloss/vim-javascript'
+Bundle 'vim-ruby/vim-ruby'
+
+filetype plugin indent on     " required!
+
+syntax on
+
+colorscheme railscasts
 
 set hidden " Automatically hide changed files when moving to the next buffer
-
-set nocompatible  " We don't want vi compatibility.
 
 set autoread
 
@@ -31,13 +61,8 @@ set shiftwidth=2
 set number
 
 let mapleader = '\'
-"map <leader>F :FufFile<CR>
-"map <leader>f :FufTaggedFile<CR>
-"map <leader>s :FufTag<CR>
-map <leader>SS :mksession! ~/vim.session
 
-map <leader>b :tabnew<CR>
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <Leader>n :NERDTree<CR>
 
 " Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
 nnoremap <silent> <M-F12> :BufExplorer<CR>
