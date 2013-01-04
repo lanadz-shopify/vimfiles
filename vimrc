@@ -29,6 +29,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'henrik/vim-yaml-flattener'
 
 filetype plugin indent on     " required!
 
@@ -59,6 +60,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set number
+
+" Automatically remove whitespaces on empty lines
+autocmd BufWritePre *.rb :%s/^\s\+$//e
 
 let mapleader = '\'
 
