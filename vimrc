@@ -29,7 +29,6 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'henrik/vim-yaml-flattener'
 
 filetype plugin indent on     " required!
 
@@ -78,6 +77,15 @@ set showmatch  " Show matching brackets.
 
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" Save undo info after editor is closed
+if version >= 700
+  set history=64
+  set undolevels=128
+  set undodir=~/.vim/undodir/
+  set undofile
+  set undolevels=1000
+  set undoreload=10000
+endif
 
 "save code, run ruby, show output in preview window
 function! Ruby_eval_vsplit() range
