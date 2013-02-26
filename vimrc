@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 " My Bundles:
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'tpope/vim-rails.git'
+Bundle 'kchmck/vim-coffee-script'
 " Git integration
 Bundle 'tpope/vim-fugitive'     	
 Bundle 'mileszs/ack.vim'
@@ -30,12 +31,17 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on     " required!
 
 syntax on
 
 colorscheme railscasts
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 set hidden " Automatically hide changed files when moving to the next buffer
 
@@ -76,7 +82,7 @@ nnoremap <silent> <S-F12> :bp<CR>
 " Visual
 set showmatch  " Show matching brackets.
 
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Save undo info after editor is closed
 if version >= 700
