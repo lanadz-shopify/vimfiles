@@ -10,38 +10,30 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles:
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'pangloss/vim-javascript'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails.git'
 Bundle 'kchmck/vim-coffee-script'
-" Git integration
+Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'     	
-Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jpo/vim-railscasts-theme'
-" Check syntax
 Bundle 'scrooloose/syntastic'   	
-" Switch between buffers
 Bundle 'thisivan/vim-bufexplorer'
-" Comment/uncomment code
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-haml'
+
 " Vim sugar for the UNIX shell commands (Remove, Move, Find, Chmod)
 Bundle 'tpope/vim-eunuch'
 " Change text surronding chars (cs"', cs'<q>, cst")
 Bundle 'tpope/vim-surround'
-Bundle 'pangloss/vim-javascript'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kien/ctrlp.vim'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on     " required!
 
 syntax on
 
 colorscheme railscasts
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
 
 set hidden " Automatically hide changed files when moving to the next buffer
 
@@ -56,7 +48,6 @@ set nowb
 
 "make cmdline tab completion similar to bash
 set wildmode=list:longest   
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o*.obj*~ "stuff to ignore when tab completing
 
 set cindent
@@ -94,22 +85,5 @@ if version >= 700
   set undoreload=10000
 endif
 
-"save code, run ruby, show output in preview window
-function! Ruby_eval_vsplit() range
-  let src = tempname()
-  let dst = tempname()
-  execute ": " . a:firstline . "," . a:lastline . "w " . src
-  execute ":silent ! ruby " . src . " > " . dst . " 2>&1 "
-  execute ":pclose!"
-  execute ":redraw!"
-  execute ":vsplit"
-  execute "normal \<C-W>l"
-  execute ":e! " . dst
-  execute ":set pvw"
-  execute "normal \<C-W>h"
-endfunction
-vmap <silent> <F7> :call Ruby_eval_vsplit()<CR>
-nmap <silent> <F7> mzggVG<F7>`z
-imap <silent> <F7> <Esc><F7>a
-map <silent> <S-F7> <C-W>l:bw<CR>
-imap <silent> <S-F7> <Esc><S-F7>a
+set mouse=a
+
